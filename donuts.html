@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="ja-JP">
+<head>
+	<meta charset="UTF-8">
+	<title>Donuts</title>
+	<script type="text/javascript" charset="utf-8">
+	    function parseDonuts(donutString) {
+	        numDonuts = parseInt(donutString);
+	        if (donutString.indexOf("ダース") != -1)
+	           numDonuts *= 12;
+	        return numDonuts;
+	    } 
+	
+		function updateOrder() {
+		    const TAXRATE = 0.05;
+		    const DONUTPRICE = 0.5;
+		    var numCakeDonuts = parseDonuts(document.getElementById("cakedonuts").value);
+		    if (isNaN(numCakeDonuts))
+		        numCakeDonuts = 0;
+		    var subTotal = numCakeDonuts * DONUTPRICE;
+		    var tax = subTotal * TAXRATE;
+		    var total = subTotal + tax;
+		    document.getElementById("subtotal").value = "$" + subTotal.toFixed(2);
+		    document.getElementById("tax").value = "$" + tax.toFixed(2);
+		    document.getElementById("total").value = "$" + total.toFixed(2);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="ja-JP">
+<head>
+	<meta charset="UTF-8">
+	<title>iRock</title>
+	<script src="cookie.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+	    var userName;
+        function greetUser() {
+            userName = readCookie("irock_username");
+            if (userName)
+                alert("Hi, " + userName + ". I was missed you.");
+            else
+                alert('Hello. I am iRock');
+        }
+		function touchRock() {
+		    if (userName) {
+		        alert("Hi, " + userName);
+		        document.getElementById("rockImg").src = "rock_happy.png";
+		    }
+		    else {
+		        userName = prompt("What is your name?");
+		        if (userName) {
+		            alert("Nice to meet you, " + userName + "!");
+		        }
+		    }
+		    document.getElementById("rockImg").src = "rock_happy.png";
+		    setTimeOut("document.getElementById('rockImg').src = 'rock.png';", 5 * 60 * 1000);
+		}
+		function resizeRock() {
+		    document.getElementById("rockImg").style.height = (document.body.clientHeight - 100) * 0.9;
+		}
+	</script>
+</head>
+<body onload="resizeRock();greetUser();">
+    <img src="" id="rockImg" alt="" onclick="touchRock()" />
+	
+</body>
+</html>
