@@ -1,0 +1,1 @@
+Blog.prototype.signarute = "by" + getText(xmlData.getElementsByTagName("author")[0];

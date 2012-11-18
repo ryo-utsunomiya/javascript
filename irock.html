@@ -7,6 +7,8 @@
 	<script type="text/javascript" charset="utf-8">
 	    var userName;
         function greetUser() {
+            if (navigator.cookieEnabled)
+                userName = readCookie("irock_username");
             userName = readCookie("irock_username");
             if (userName)
                 alert("Hi, " + userName + ". I was missed you.");
@@ -22,6 +24,10 @@
 		        userName = prompt("What is your name?");
 		        if (userName) {
 		            alert("Nice to meet you, " + userName + "!");
+		            if (navigator.cookieEnabled)
+    		            writeCookie("irock_username", userName, 5 * 365);
+    		        else
+    		            alert("This browser does not support cookie, so I can not remenber you. Sorry.");
 		        }
 		    }
 		    document.getElementById("rockImg").src = "rock_happy.png";
