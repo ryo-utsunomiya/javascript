@@ -2,3 +2,5 @@
 .project
 
 *.js#
+
+.idea/workspace.xml
